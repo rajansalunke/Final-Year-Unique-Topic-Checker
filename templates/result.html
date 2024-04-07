@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock title %}
+
+
+{% block body %}
+
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="row mx-auto justify-content-center">
+            <div class="col-md-12">
+                <div class="heading_container">
+                    <h2>
+                        Project Details
+                    </h2>
+                </div>
+                <div>
+                    <h4>Title</h4>
+                    <p> {{ results.title }}</p>
+                </div>
+                <div>
+                    <h4>Abstract</h4>
+                    <p> {{ results.abstract }}</p>
+                </div>
+                <div>
+                    <h4>Algorithm</h4>
+                    <p> {{ results.algorithm }}</p>
+                </div>
+                <div>
+                    <h4>Methodology</h4>
+                    <p> {{ results.methodology }}</p>
+                </div>
+                <div style="margin-top: 150px;">
+                    <h4>Similar Projects</h4>
+                    <div style="height: 800px; overflow-y: auto; overflow: scroll;">
+                        <table class="table">
+                            <tbody>
+                                {% for match in matched_data %}
+                                <tr>
+                                    <th colspan="2">
+                                        <h5>{{ match.Title }}</h5>
+                                    </th>
+                                    <th>Similarity</th>
+                                </tr>
+                                <tr>
+                                    <th>Abstract</th>
+                                    <td>{{ match.Abstract }}</td>
+                                    <td>{{ match.similarity_abstract }}%</td>
+                                </tr>
+                                <tr>
+                                    <th>Algorithm</th>
+                                    <td>{{ match.Algorithm }}</td>
+                                    <td>{{ match.similarity_algorithm }}%</td>
+                                </tr>
+                                <tr>
+                                    <th>Methodology</th>
+                                    <td>{{ match.Methodology }}</td>
+                                    <td>{{ match.similarity_methodology }}%</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <hr style="border: none; height: 1px; background-color: black;">
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex ">
+                <button>
+                    <a href="dashboard" style="text-decoration: none; color: aliceblue;">Go to Dashboard</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="row mx-auto justify-content-center">
+            <div class="col-md-6">
+                <div class="heading_container">
+                    <h2>
+                        Register Here
+                    </h2>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <input type="text" id="fname" name="fname" placeholder="First Name*" />
+                    </div>
+                    <div>
+                        <input type="text" id="lname" name="lname" placeholder="Last Name*" />
+                    </div>
+                    <div>
+                        <input type="email" id="username" name="username" placeholder="Email*" />
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" placeholder="Password*" />
+                    </div>
+                    <div>
+                        <input type="password" id="password1" name="password1" placeholder="Re-enter Password*" />
+                    </div>
+                    
+                    <div class="d-flex ">
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+{% endblock body %}
+    
+    
